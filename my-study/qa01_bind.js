@@ -1,3 +1,5 @@
+// 설명 필요
+
 // function sum(num) {
 // 	console.log(this);
 // 	return num + this.num1 + this.num2;
