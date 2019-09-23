@@ -9,17 +9,14 @@ class Point {
 	info(){
 		// console.log(`x: ${this.x}, y: ${this.y}`);
 		return this.x + this.y;
-
 	}
-
 	exec() {
 		return this.info.bind(this)();
 	}
 }
-
+console.log(111111);
 var point = new Point(30, 40);
-
-// point.info();
-
+// point.info()
 console.log(point.info.bind({x: 100, y: 200})());
 console.log(point.exec());
+
