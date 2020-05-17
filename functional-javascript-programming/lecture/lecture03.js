@@ -46,11 +46,16 @@ console.log('-----------------------------------');
 // 2. _filter, _map으로 리팩토링
 function _filter(list, predicate) {
     let new_list = [];
-    for (let i = 0, len = list.length; i < len; i += 1) {
-        if (predicate(list[i])) {
-            new_list.push(list[i]);
+    _each(list, function (val) {
+        if (predicate(val)) {
+            new_list.push(val)
         }
-    }
+    });
+    //for (let i = 0, len = list.length; i < len; i += 1) {
+    //     if (predicate(list[i])) {
+    //         new_list.push(list[i]);
+    //     }
+    //}
     return new_list
 }
 // _filter 는 응용형 함수: 함수를 인자를 받아 원하는 시점에 평가
@@ -88,9 +93,12 @@ console.log('-----------------------------------');
 // 나이와 이름의 중복을 제거한 코드 만들기
 function _map(list, mapper) {
     let new_lists = [];
-    for (let i = 0, len = list.length; i < len; i += 1) {
-        new_lists.push(mapper(list[i]));
-    }
+    _each(list, function (val) {
+        new_lists.push(mapper(val));
+    })
+    // for (let i = 0, len = list.length; i < len; i += 1) {
+    //     new_lists.push(mapper(list[i]));
+    // }
     return new_lists;
 }
 console.log(
@@ -114,3 +122,9 @@ console.log(
 );
 
 // 루프 중복 제거
+function _each(list, iter) {
+    for (let i = 0, len = list.length; i < len; i += 1) {
+        iter(list[i])
+    }
+    return list;
+}
