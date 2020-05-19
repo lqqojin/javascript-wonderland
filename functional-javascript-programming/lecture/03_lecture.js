@@ -120,7 +120,6 @@ console.log(
         user => user.age
     )
 );
-
 // 루프 중복 제거
 function _each(list, iter) {
     for (let i = 0, len = list.length; i < len; i += 1) {

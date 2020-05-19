@@ -52,16 +52,18 @@ const users = [
 	{ id: 7, name: 'JI', age: 31 },
 	{ id: 8, name: 'MP', age: 23 }
 ];
-const _get = function (obj, key) {
-	return obj === null || obj === undefined ? undefined : obj[key];
-}
+const _get = _curryr(function (obj, key) {
+	return obj == null ? undefined : obj[key];
+})
 
 console.log(users[0].name);
 console.log(_get(users[0], 'name'));
 
 // console.log(users[10].name);
 console.log(_get(users[10], 'name'));
-
+console.log(_get('name')(users[1]));
+const getName = _get('name');
+console.log(getName(users[2]));
 
 // currying 연습 해보기
 const random = (fn) => {
